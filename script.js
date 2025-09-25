@@ -83,50 +83,7 @@
         });
 
 
-        // Efecto cursor personalizado funcional en móvil y escritorio
-const cursor = document.createElement('div');
-cursor.style.cssText = `
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, #FF6B9D, #C768FF);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transition: all 0.1s ease;
-    opacity: 0;
-`;
-document.body.appendChild(cursor);
-
-// Función para mover el cursor
-function moveCursor(x, y) {
-    cursor.style.left = x - 10 + 'px';
-    cursor.style.top = y - 10 + 'px';
-    cursor.style.opacity = '0.8';
-}
-
-// Detectar movimiento de mouse
-document.addEventListener('mousemove', (e) => {
-    moveCursor(e.clientX, e.clientY);
-});
-
-// Detectar toque en pantalla
-document.addEventListener('touchmove', (e) => {
-    if (e.touches.length > 0) {
-        const touch = e.touches[0];
-        moveCursor(touch.clientX, touch.clientY);
-    }
-}, {passive: true});
-
-// Opcional: ocultar cursor al salir de la ventana
-document.addEventListener('mouseleave', () => {
-    cursor.style.opacity = '0';
-});
-
-// Opcional: ocultar cursor al terminar toque
-document.addEventListener('touchend', () => {
-    cursor.style.opacity = '0';
-});
+        
 
 
 
@@ -280,3 +237,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
