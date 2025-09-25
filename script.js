@@ -233,3 +233,26 @@ document.addEventListener('keydown', (e) => {
         e.preventDefault();
     }
 });
+
+
+
+
+// Esperar a que el DOM cargue
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    // Al hacer clic en el menú hamburguesa
+    menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active"); // Animación de las barras
+        navLinks.classList.toggle("active");   // Mostrar/ocultar menú
+    });
+
+    // Opcional: cerrar menú al hacer clic en un enlace
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            menuToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+        });
+    });
+});
